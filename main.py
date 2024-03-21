@@ -42,6 +42,7 @@ def spiral_matrix_diagonal(matrix):
     return [matrix[i][i] for i in range(1)]
 
 
+
 res = spiral_matrix_diagonal(init_spiral_matrix(7, 7))
 print(res)
     
