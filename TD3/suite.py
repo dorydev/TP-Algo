@@ -107,3 +107,69 @@ def suite_rec(n):
 
     for i in range(n):
         pass
+
+#first test
+
+
+import random as rd
+import matplotlib.pyplot as plt
+
+class Random_number:
+    def __init__(self, a, c, m, y0, n):
+        
+        self.a = a
+        self.c = c
+        self.m = m
+        self.y0 = y0
+        self.n = n
+
+        #self.gen_congruenciel_lineaire()
+        self.valeurs()
+        self.graphic_render()
+        
+
+    def gen_congruenciel_lineaire(self):
+
+        for i in range(self.y0, self.n):   
+            yn = (self.a * self.y0 + self.c) % self.m
+        return yn
+
+    def valeurs(self):
+        liste = []
+        liste.append(self.y0)
+        y = self.y0
+
+        for i in range(self.n-1):
+            y = (self.a * y + self.c) % self.m
+            #y = y / m   #la suite n'est plus aléatoire /!\
+            liste.append(y)
+        return liste
+    
+    def graphic_render(self):
+        valeur = []
+        liste_values1= []
+        liste_values2= []
+        valeur.append(self.y0)
+        for i in range(0, self.n ):
+            y = self.y0
+            #t = y
+            y = (self.a * y + self.c) % self.m
+            valeur.append(y)
+        for j in range(self.n // 2):
+            liste_values1.append(valeur[2 * j])
+            liste_values2.append(valeur[2 * j + 1])
+
+            #return liste_values1, liste_values2
+            print(liste_values1)
+            #print(liste_values2)
+
+        
+        plt.scatter(liste_values1, liste_values2, s=1, alpha=0.7, cmap='viridis')
+
+        plt.title("Random generator")
+        plt.xlabel("y2i")
+        plt.ylabel("y2i+1")
+        plt.show()
+
+
+rd_nbr = Random_number(843314861, 453816693, 2**31, 1, 10000)
