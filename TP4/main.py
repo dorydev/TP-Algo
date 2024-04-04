@@ -39,8 +39,6 @@ class Random_number:
         plt.grid(True)
         plt.show()
 
-
-
     #graphic part
     def plot_pairs(self, values):
         plt.scatter(values[::2], values[1::2], s=1, alpha=0.7, cmap='viridis')
